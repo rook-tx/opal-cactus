@@ -1,0 +1,34 @@
+﻿.resource {
+    &-ul {
+        margin-top: -$let*.5em;
+    }
+
+    &-li {
+        float: left;
+    }
+
+    &-a {
+        border: 1px solid $bgry;
+        border-radius: 3px;
+        display: block;
+        margin: 0 $let*.5em $let*.5em 0;
+        padding: $let*.5em $let*1em;
+        @include transition(border-color .2s ease-out);
+
+        &:hover {
+            border-color: $blu;
+        }
+    }
+
+    &-label {
+        display: block;
+        font-weight: $bold;
+        margin: 0 $let*.5em $let*1em 0;
+        padding: $let*.25em 0;
+    }
+
+    &-active {
+        background: $blu;
+        color: $w;
+    }
+}

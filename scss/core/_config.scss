@@ -1,0 +1,61 @@
+$org: #ff9e16;
+$grn: #3fae2a;
+$blu: #2f7de1;
+$red: #ec0044;
+
+$dblu: #00303c;
+
+$blk: #111820;
+$nblk: #333;
+$dgry: #575759;
+$bgry: #ced8dd;
+$mgry: darken($bgry,10%);
+$bdr: lighten($bgry,6%);
+$gry: lighten($bgry,11%);
+$nw: lighten($bgry,12%);
+$hw: lighten($bgry,15%);
+$w: #fff;
+
+$twitter: #55acee;
+
+$frost: rgba($w,.9);
+$mfrost: rgba($w,.62);
+$lfrost: rgba($w,.25);
+$dfrost: rgba($blk,.25);
+
+@import 'theme-colours';
+
+$key: $russian;
+$acc: $design-tech;
+
+@import 'type';
+
+$width: (($pwidth*2) + ($let*3));
+
+$tablet: (($pwidth*1.618) + ($let*2));
+$mobile: ($pwidth + ($let*2));
+
+$box-shadow: 0 3px 8px rgba($blk,.1);
+$text-shadow: 0 1px 2px rgba($blk,.3);
+
+@import 'mixins';
+
+@mixin bgshade {
+    background: url('../images/siteStyle/bg-shade.png') no-repeat fixed center -246px;
+}
+
+$z-layers: (
+    'group-nav': 1000,
+    'nav': 990,
+    'navOpen': 950,
+    'sub-menu': 940,
+    'header': 900, 
+    'body': 800,
+    'banner-title': 890,
+    'sec': 850,
+    'banner-sec': 800,
+    'keys': 830,
+    'banner': 820,
+    'banner-image': 810,
+    'bg': 0
+);

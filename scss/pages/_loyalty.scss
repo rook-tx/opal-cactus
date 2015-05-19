@@ -1,0 +1,23 @@
+﻿.loyalty-item {
+    border: 1px solid $bgry;
+    border-radius: 3px;
+    padding: $let*1em $let*1em 0;
+    margin-bottom: $let*1em;
+    width: 100%;
+
+    h4 {
+        color: $org;
+    }
+}
+
+.terms {
+    list-style: disc;
+    margin-bottom: $let*1em;
+    max-width: $pwidth*1em;
+    padding-left: $let*1em;
+
+    li {        
+        font-size: ($pc/$p)*1em;
+        line-height: $letc;
+    }
+}

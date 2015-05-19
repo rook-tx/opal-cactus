@@ -1,0 +1,114 @@
+.popup {
+    &-container {
+        h1 {
+            color: $blu;
+            margin-bottom: $let*.5em;
+            margin-bottom: $ret*.5;
+        }
+
+        .cat-wrap {
+            margin-bottom: $let*1em
+        }
+    }
+
+    &-type {
+        color: $bgry;
+        text-transform: uppercase;
+    }
+
+    &-wrap {
+        padding-bottom: 0;
+    }
+}
+
+.activity {
+    
+    &-banner {
+        &.activity-banner {
+            height: $let*21em;
+        }
+
+        &-sml {
+            border-bottom: 1px solid $blu;
+            text-align: center;
+            margin-bottom: $let*1em;
+        }
+    }
+    
+    h1 {
+        color: $blu;
+    }
+
+    &-more {
+        border-color: $nw;
+        color: lighten($blu,20%);
+        display: block;
+        text-align: right;
+        
+        .four-col:hover & {
+            border-color: $blk;
+            color: $blu;
+        }
+    }
+
+    &-image {
+
+        &.activity-image {
+            display: inline-block;
+            margin-bottom: $let*1em;
+            width: auto;
+        }
+    }
+
+    &-popup {
+        .wrap {
+            padding: 0 $let*2em;
+
+            @include bp(mobile) {
+                padding: 0 $let*.5em;
+            }
+        }
+
+        .clear-col {
+            padding: 0;
+        }
+
+        .two-col {
+            padding: 0 $let*1em 0 0;
+        }
+
+        .cat-type {
+            &:first-child {
+                border-radius: 3px 0 0 3px;
+            }
+
+            &:last-child {
+                border-radius: 0 3px 3px 0;
+            }
+        }
+    }
+
+    &-page {
+        padding-top: $let*6em;
+
+        .wrap {
+            padding: 0 $let*1em;
+        }
+
+        .activity-banner-sml, .venue-banner-sml {
+            text-align: left;
+        }
+
+        .cat-wrap {
+            max-width: $pwidth*1em;
+        }
+    }
+}
+
+.venue {
+    &-banner {
+        &-sml {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+﻿.news {
+    &-item-container {
+        @include bp(minMob) {
+            font-size: (16/$p)*1em;
+        }
+    }
+
+    &-ul {
+    }
+
+    &-li {
+        border-bottom: 1px solid $nw;
+        max-width: $pwidth*1em;
+        padding-top: $let*1em;
+
+        &:hover {
+            border-color: $bgry;
+
+            .news-a {
+                color: $blu;
+            }
+        }
+    }
+
+    &-a {
+        @include transition(color .2s ease-out);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.tweets-wrap {
+    text-align: right;
+}
+
+.tweet {
+    max-width: none;
+}

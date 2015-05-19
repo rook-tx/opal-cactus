@@ -1,0 +1,61 @@
+.col {
+    &-expl {
+        .one-col, .clear-col, .two-col, .three-col, .two-three-col, .four-col, .three-four-col, .six-col {
+            background: $w;
+            border: $let*.5em solid lighten($leisure-and-tourism,26%);
+            border-width: 0 $let*.5em;
+            outline: 1px solid $french;
+            padding: 0;
+        }
+
+        .wrap {
+            border: 1px solid lighten($leisure-and-tourism,22%);
+            border-width: 0 $let*.5em;
+            outline: 1px solid $w;
+            padding: 0;
+        }        
+
+        .one-col {
+            border-width: 0 $let*1em;
+            margin-bottom: 1px;
+            outline-color: $french;
+        }
+    }
+    
+    &-label {
+        padding: $let*1.5em;
+        text-align: center;
+        
+        .one-col & {
+            color: $red;
+        }
+        
+        .clear-col & {
+            color: $org;
+        }
+        
+        .two-col & {
+            color: $languages;
+        }
+        
+        .three-col & {
+            color: $grn;
+        }
+        
+        .two-three-col & {
+            color: $mandarin;
+        }
+        
+        .four-col & {
+            color: $blu;
+        }
+        
+        .three-four-col & {
+            color: $english;
+        }
+        
+        .six-col & {
+            color: $history;
+        }
+    }
+}

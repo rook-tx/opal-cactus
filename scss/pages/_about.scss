@@ -1,0 +1,12 @@
+﻿.team{
+    &-col {
+        h2, h3 {
+            text-align: center;
+        }
+    }
+
+    &-img.team-img {
+        margin: 0 auto $let*1em;
+        width: auto;
+    }
+}

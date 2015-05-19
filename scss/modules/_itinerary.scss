@@ -1,0 +1,77 @@
+.itineraryTable {
+    margin-bottom: $let*1em;
+    width: 100%;
+}
+
+.tr-even, .tr-odd {
+    border-radius: $let*2em 0 0 $let*2em;
+    float: left;
+    width: 100%;
+    
+    @include bp(mobile) {
+        border-radius: 3px 3px 0 0;
+    }
+}
+
+.tr-header {
+
+    th {
+        color: $blu;
+        text-align: left;
+    }
+
+    @include bp(mobile) {
+        display: none;
+    }
+}
+
+.tr-odd {
+    background: $w;
+    
+    .theDay {
+        border-color: $nw;
+    }
+}
+
+.tr-even {
+    background: $nw;
+}
+
+.th-space, .theDay {
+    width: 10%;
+}
+
+th, td {
+    float: left;
+    padding: $let*.5em $let*1em;
+    width: 30%;
+    
+    &[colspan="2"] {
+        width: 60%; 
+    }
+  
+    &[colspan="3"] {
+        width: 90%;
+    }
+    
+    @include bp(mobile) {
+        width: 100% !important; 
+    }
+}
+
+.theDay {
+    border: 3px solid $w;
+    border-radius: $let*2em; 
+    height: $let*4em;
+    padding: $let*1.3em 0 0;
+    text-align: center;
+    width: 10%;
+    
+    @include bp(mobile) {
+      border-radius: 0;
+      border-width: 0 0 1px;
+      height: auto;
+      padding: $let*.5em $let*1em;
+      width: 100%;
+    }
+}
