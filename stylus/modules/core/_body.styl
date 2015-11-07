@@ -1,0 +1,41 @@
+*, *::before, *::after
+  box-sizing border-box
+
+html, body
+  min-height 100%
+  width 100%
+
+html
+  font-size 100%
+
+  +bp('minMob')
+    font-size ($p/16)*100%
+
+  +bp('minTab')
+    font-size ($p/16)*100%
+
+body
+  background $w
+  color $blk
+  font 100% $font
+  font-weight $weight
+  letter-spacing .02em
+  line-height $let
+
+a
+  color inherit
+  text-decoration none
+
+img
+  display block
+  max-width 100%
+
+.cf, .wrap
+  *zoom 1
+
+  &::before, &::after
+    content ' '
+    display block
+
+  &::after
+    clear both

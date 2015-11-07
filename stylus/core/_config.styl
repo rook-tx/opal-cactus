@@ -1,0 +1,44 @@
+// ----------
+// Colour
+// ----------
+
+$blk      = #111820
+$nblk     = lighten($blk,9%)
+$nblk     = lighten($blk,20%)
+$bgry     = #ced8dd
+$mgry     = shade($bgry,10%)
+$lgry     = shade($bgry,6%)
+$bdr      = tint($bgry,10%)
+$gry      = tint($bgry,30%)
+$nw       = tint($bgry,60%)
+$hw       = tint($bgry,80%)
+$w        = #fff
+
+$prpl     = #b096da
+$blu      = #7ca3dc
+
+
+// ----------
+// Grid
+// ----------
+
+@import 'core/_type'
+
+$width    = (($pwidth*2) + ($let*3))
+$tablet   = (($pwidth*1.382) + ($let*2))
+$mobile   = (($pwidth*1) + ($let*2))
+
+
+// ----------
+// Shadow
+// ----------
+
+$text-shadow = 0 1px 4px rgba($blk,.1)
+
+
+// ----------
+// Imports
+// ----------
+
+@import 'core/_animation'
+@import 'core/_mixins'
