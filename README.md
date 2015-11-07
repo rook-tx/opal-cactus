@@ -59,13 +59,13 @@ An easily-extensible stylus framework for getting projects off on the right foot
       *Definitions for the <a href="{% url '/typography/' %}" title="Typography">standard typographic elements</a> (h1&ndash;5, p)*
 
   * _module.styl
-    **Your module here&hellip;**
+    *Your module here&hellip;*
 
 * **pages**
   *Collections of or variations on modules specific to pages of the app, or totally unique code*
 
   * _page.styl
-    **Your page here&hellip;**
+    *Your page here&hellip;*
 
 * **vendors**
 
