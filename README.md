@@ -1,4 +1,2 @@
-# opal-coast
-Style guide for Opal Coast, the design language for the Halsbury Group CRM and internal apps.
-
-This is going to be awesome and I can't wait to see it finished.
+# Opal Coast
+An easily-extensible stylus framework for getting projects off on the right foot, with fundamental typography and responsive grid layout rules out of the box.
