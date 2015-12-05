@@ -1,2 +1,2 @@
-# cadia
-Cadia is a Type 1 Diabetes management app.
+# Opal Cactus
+Basic Cactus setup for web apps built with Opal Coast.
