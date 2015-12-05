@@ -1,74 +1,103 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-
-        <link rel="stylesheet" href="{% static '/static/css/bootstrap.css' %}">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-        <link rel="stylesheet" href="{% static '/static/css/bootstrap-theme.css' %}">
-        <link rel="stylesheet" href="{% static '/static/css/main.css' %}">
-        <script src="{% static '/static/js/vendor/modernizr-2.6.2.js' %}"></script>
-    </head>
-
-    <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{% url "/index.html" %}">Project name</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="{% if_current_page '/index.html' 'active' '' %}"><a href="{% url '/index.html' %}">Home</a></li>
-            <li class="{% if_current_page '/about.html' 'active' '' %}"><a href="{% url '/about.html' %}">About</a></li>
-            <li class="{% if_current_page '/contact.html' 'active' '' %}"><a href="{% url '/contact.html' %}">Contact</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Glerms | Collisionary Studios</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static '/static/css/glerms1511.css' %}">
+</head>
+<body class="loading cf {{ pageClass }} {{ bodyClass }}">
+  <div class="bg"></div>
+  <header class="header cf">
+    <div class="wrap">
+      <nav class="mnav">
+        <ul class="mnav-ul">
+          <li class="mnav-li mnav-logo mnav-drop">
+            <a class="mnav-a" href="{% url '/' %}" title="Collisionary Studios"><span class="logo"><span class="logo-first">Collisionary</span> Studios</span></a>
+            <ul class="snav-ul">
+              {% if pageClass != 'index' %}
+                <li class="snav-li"><a class="snav-a" href="{% url '/' %}" title="Home">Home</a></li>
+              {% endif %}
+              <li class="snav-li"><a class="snav-a{% if pageClass == 'about' %} snav-active{% endif %}" href="{% url '/about/' %}" title="About Us">About Us</a></li>
+              <li class="snav-li"><a class="snav-a{% if pageClass == 'blog' %} snav-active{% endif %}" href="http://blog.collisionarystudios.com" title="Blog">Blog</a></li>
+              <li class="snav-li"><a class="snav-a{% if pageClass == 'contact' %} snav-active{% endif %}" href="{% url '/contact/' %}" title="Contact">Contact</a></li>
+              <li class="{% if_current_page '/index.html' 'active' '' %}"><a href="{% url '/index.html' %}">Home</a></li>
+              <li class="{% if_current_page '/about.html' 'active' '' %}"><a href="{% url '/about.html' %}">About</a></li>
+              <li class="{% if_current_page '/contact.html' 'active' '' %}"><a href="{% url '/contact.html' %}">Contact</a></li>
+            </ul>
+          </li>
+          <li class="mnav-li mnav-glerms">
+            <a class="mnav-a{% if bodyClass == 'glerms' %} mnav-active{% endif %}" href="{% url '/' %}" title="Glerms">Glerms</a>
+          </li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
+  <main class="main-body cf">
     {% block body %}
     {% endblock %}
+  </main>
 
-    <script src="{% static '/static/js/vendor/jquery-1.10.1.js' %}"></script>
-    <script src="{% static '/static/js/vendor/bootstrap.js' %}"></script>
-    <script src="{% static '/static/js/main.js' %}"></script>
-  </body>
+  <footer class="footer cf">
+    <nav class="mnav">
+      <ul class="fnav-ul">
+        <li class="fnav-li"><a class="fnav-a" href="{% url '/about/' %}" title="About Us">About Us</a></li>
+        <li class="fnav-li"><a class="fnav-a" href="http://blog.collisionarystudios.com" title="Blog">Blog</a></li>
+        <li class="fnav-li"><a class="fnav-a" href="{% url '/contact/' %}" title="Contact">Contact</a></li>
+      </ul>
+    </nav>
+  </footer>
 
+
+  <script src="{% static '/static/js/jquery.min.js' %}"></script>
   {% block scripts %}
   {% endblock %}
+  <script>
+    $(document).ready(function () {
+      $('.mnav-drop .mnav-a').click(function (e) {
+        e.preventDefault();
+        $('.mnav-drop').toggleClass('mnav-open');
+      })
+      $('.snav-a').click(function () {
+        $('.mnav-drop').removeClass('mnav-open');
+      })
+    });
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 600);
+          return false;
+          }
+        }
+      });
+    });
+    var cb = function() {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'http://fonts.googleapis.com/css?family=Questrial|Varela';
+      var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+    };
+    var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+    if (raf) raf(cb);
+    else window.addEventListener('load', cb);
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-70625527-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+</body>
 </html>
