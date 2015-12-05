@@ -1,0 +1,135 @@
+// ----------
+// Parents
+// ----------
+
+.sec
+  float left
+  width 100%
+
+.wrap
+  margin 0 auto
+  max-width $width*1em
+  padding $let*2em $let*.5em
+  width 100%
+
+// ----------
+// .x-n-col
+// ----------
+
+[class*=\"-col\"]
+  float left
+  padding-left $let*.5em
+  padding-right $let*.5em
+  width 100%
+
+  > img
+    max-width $pwidth*1.618em
+    width 100%
+
+.clear-col
+  >
+    img, p
+      margin 0 auto $let*2em
+
+.one-col
+  float none
+  padding-left $let*1em
+  padding-right $let*1em
+
+.two-col
+  +bp('minMob')
+    width 50%
+
+  +bp('print')
+    width 50%
+
+.three-col
+  +bp('minTab')
+    width (100%/3)
+
+  +bp('print')
+    width 50%
+
+.two-three-col
+  +bp('minTab')
+    width (200%/3)
+
+  +bp('print')
+    width (200%/3)
+
+.four-col
+  +bp('minMob')
+    width 50%
+
+  +bp('minTab')
+    width 25%
+
+  +bp('print')
+    width 25%
+
+  .wrap &
+    &:nth-child(4n+1)
+      clear left
+
+.three-four-col
+  +bp('minTab')
+    width 75%
+
+  +bp('print')
+    width 75%
+
+.six-col
+  +bp('minMob')
+    width (100%/3)
+
+  +bp('minTab')
+    width (100%/6)
+
+  +bp('print')
+    width (100%/6)
+
+.five-six-col
+  +bp('minMob')
+    width (100%/3)
+
+  +bp('minTab')
+    width (500%/6)
+
+  +bp('print')
+    width (100%/6)
+
+.twelve-col
+  +bp('minMob')
+    width (100%/6)
+
+  +bp('minTab')
+    width (100%/12)
+
+  +bp('print')
+    width (100%/12)
+
+.seven-twelve-col
+  +bp('minTab')
+    width (700%/12)
+
+  +bp('print')
+    width (700%/12)
+
+// ----------
+// Modifers
+// ----------
+
+.col-c
+  clear both
+  float none
+  margin-left auto
+  margin-right auto
+
+.col-r
+  float right
+
+.align-c
+  text-align center
+
+.align-r
+  text-align right
