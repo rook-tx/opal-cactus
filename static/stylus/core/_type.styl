@@ -2,8 +2,9 @@
 // Font
 // ----------
 
-$font     = 'Lato', serif
-$hfont    = 'Merriweather', serif
+$font     = 'Libre Baskerville', serif
+$hfont    = 'Junge', serif
+$sfont    = 'PT Sans', sans-serif
 
 // ----------
 // Weight
@@ -19,18 +20,24 @@ $bold     = 700
 // Type
 // ----------
 
-$p        = 16
-$lh       = 26
+@import '_mod.styl'
 
-$h1       = 138
-$h2       = 38
-$h3       = 72
-$h4       = 44
-$h5       = 24
-$h6       = 18
-$pc       = 14
+$mod      = $major-third
 
-$nav      = 14
+$p        = 18
+$lh       = $p*3
+$gt       = 16
+
+$h1       = $p*$mod*$mod*$mod*$mod*$mod
+$h2       = $p*$mod*$mod*$mod*$mod
+$h3       = $p*$mod*$mod*$mod
+$h4       = $p*$mod*$mod
+$h5       = $p*$mod
+$h6       = $p
+
+$pc       = $p/$mod
+
+$nav      = $pc
 
 // ----------
 // Grid
@@ -45,5 +52,15 @@ $let5     = $lh/$h5
 $let6     = $lh/$h6
 $letc     = $lh/$pc
 $letn     = $lh/$nav
+
+$gut      = $gt/$p
+$gut1     = $gt/$h1
+$gut2     = $gt/$h2
+$gut3     = $gt/$h3
+$gut4     = $gt/$h4
+$gut5     = $gt/$h5
+$gut6     = $gt/$h6
+$gutc     = $gt/$pc
+$gutn     = $gt/$nav
 
 $pwidth   = 36
