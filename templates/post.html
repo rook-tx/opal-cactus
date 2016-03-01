@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+{% block templateClass %}tpl-post{% endblock %}
+
+{% block snav %}
+<nav class="snav">
+  <ul class="snav-ul">
+    <li class="snav-li snav-prev">
+      {% if prevPost %}
+        <a href="/{{ prevPost.path }}" class="snav-a" title="{{ prevPost.title }}">
+          <span class="snav-arrow">&lsaquo;</span>
+          <div class="snav-details">
+            Previous <strong>{{ prevPost.title }}</strong>
+          </div>
+        </a>
+      {% else %}
+        <a href="/music/" class="snav-a snav-all" title="All projects">
+          <span class="snav-arrow">&lsaquo;</span>
+          <div class="snav-details">
+            To <strong>All music</strong>
+          </div>
+        </a>
+      {% endif %}
+    </li>
+    <li class="snav-li snav-current">
+      <div class="snav-crumb">
+        <a href="/music/" class="snav-crumb-a" title="All projects">Music</a>
+        &rsaquo; <a href="/music/{{ album }}/" class="snav-crumb-a" title="{{ album }}">{{ album }}</a>
+      </div>
+      <div class="snav-title">
+        <a href="#top" target="_top" title="Back to top">
+          {{ title }}
+        </a>
+      </div>
+    </li>
+    <li class="snav-li snav-next">
+      {% if nextPost %}
+        <a href="/{{ nextPost.path }}" class="snav-a" title="{{ nextPost.title }}">
+          <span class="snav-arrow">&rsaquo;</span>
+          <div class="snav-details">
+            Next <strong>{{ nextPost.title }}</strong>
+          </div>
+        </a>
+      {% else %}
+        <a href="/music/" class="snav-a snav-all" title="All projects">
+          <span class="snav-arrow">&lsaquo;</span>
+          <div class="snav-details">
+            To <strong>All music</strong>
+          </div>
+        </a>
+      {% endif %}
+    </li>
+  </ul>
+</nav>
+
+{% endblock snav %}
+
+{% block content %}
+
+{% block body %}
+	This is where the post contents is.
+{% endblock body %}
+
+{% block footer %}
+  <div class="header-line">
+    <div class="header-line-inner js-hline">
+      Progress &mdash; <span class="header-line-span js-hlspan">0</span>%
+    </div>
+  </div>
+{% endblock footer %}
+
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  $(document).ready(function(){
+    var w = $(window).outerWidth(),
+      h = $(window).outerHeight(),
+      hw = w/2,
+      hh = h/2,
+      r = 0,
+      fr = 0,
+      bg = $('.bg'),
+      circle = $('.circle-wrap'),
+      bgs = $('.bg-shade');
+    $(window).on('mousemove', function (e) {
+      ex = e.clientX;
+      ey = e.clientY;
+      rx = (hw - ex)/w;
+      ry = (hh - ey)/h;
+      brx = rx*1;
+      bry = ry*1;
+      frx = rx*5;
+      fry = ry*3;
+      srx = (-(rx*0.5));
+      sry = 0;
+      bg.css('transform', 'translate3d(' + brx + '%,' + bry + '%,0)');
+      circle.css('transform', 'translate3d(' + frx + '%,' + fry + '%,0)');
+      bgs.css('transform', 'translate3d(' + srx + '%,' + sry + '%,0)');
+      console.log(ey);
+    });
+    $(window).on('devicemotion', function (e) {
+      ex = e.accelerationIncludingGravity.x;
+      ey = e.accelerationIncludingGravity.y;
+      rx = (hw - ex)/w;
+      ry = (hh - ey)/h;
+      brx = rx*1;
+      bry = ry*1;
+      frx = rx*5;
+      fry = ry*3;
+      srx = (-(rx*0.5));
+      sry = 0;
+      bg.css('transform', 'translate3d(' + brx + '%,' + bry + '%,0)');
+      circle.css('transform', 'translate3d(' + frx + '%,' + fry + '%,0)');
+      bgs.css('transform', 'translate3d(' + srx + '%,' + sry + '%,0)');
+      console.log(ey);
+    });
+    $(window).on('resize', function () {
+      w = $(window).outerWidth();
+      h = $(window).outerHeight();
+      hw = w/2;
+      hh = h/2;
+    });
+  })
+</script>
+
+{% endblock scripts %}

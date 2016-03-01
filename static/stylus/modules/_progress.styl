@@ -1,0 +1,26 @@
+.header
+  &-line
+    background $gry
+    bottom $let*1em
+    height 1px
+    left $let*1em
+    overflow hidden
+    position fixed
+    right $let*1em
+    z-index 1
+
+    &-inner
+      background $pink
+      border-right 2px solid $blk
+      bottom 0
+      display block
+      height 1px
+      left 0
+      opacity 1
+      position absolute
+      transform translate3d(-100%,0,0)
+      transition opacity .5s $fade-out
+      width 100%
+
+      .header:hover &, .loading &
+        opacity 0

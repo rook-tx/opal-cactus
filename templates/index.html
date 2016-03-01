@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block templateClass %}tpl-index{% endblock %}
+
+{% block content %}
+
+<section class="sec title-block">
+  <div class="wrap one-col">
+    <h1 class="title">{{ title }}</h1>
+  </div>
+</section>
+{% block body %}
+{% endblock body %}
+<section class="sec">
+  <div class="wrap">
+    <div class="three-col col-c">
+      {% include "partials/_project-list.html" %}
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

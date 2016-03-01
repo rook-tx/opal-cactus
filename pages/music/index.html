@@ -1,0 +1,32 @@
+pgC: index
+
+title: The Fox
+webTitle: the-fox
+album: The Fox
+chapter: II
+date: 21-07-2012
+
+{% extends "index.html" %}
+
+{% block body %}
+
+<div class="projarray">
+  <div class="projarray-wrap">
+    {% for post in posts %}
+      {% if post.pgC != "index" %}
+        <div class="projarray-item projarray-{{ post.cat }}">
+          <div class="projarray-front">
+            {% if post.cat == "artwork" or post.artist == "Halsbury" %}
+              <img class="projarray-img" src="/static/images/projects/{{ post.cat }}/{{ post.artist|lower }}/{{ post.webTitle }}/{{ post.array }}" alt="{{ post.title }}"/>
+            {% else %}
+              <img class="projarray-img" src="/static/images/projects/{{ post.cat }}/{{ post.webTitle }}/{{ post.array }}" alt="{{ post.title }}"/>
+            {% endif %}
+          </div>
+          <a class="projarray-details" href="/{{ post.path }}" title="{{ post.title }}">{{ post.title }}</a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+  {% block header %}
+  <title>{% block title %}{{ title }}{% endblock %} &#124; {% block album %}{{ album }}{% endblock %} &mdash; ZIGO</title>
+  {% endblock header %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="http://rook-design.com" />
+  <link href="https://plus.google.com/105527135264707918883" rel="publisher" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:url" content="http://wearezigo.com" />
+  <meta property="og:title" content="We are ZIGO" />
+  <meta property="og:image" content="http://wearezigo.com/static/images/siteStyle/IMG_7463.jpg" />
+  <meta property="og:site_name" content="We are ZIGO" />
+  <meta property="article:publisher" content="https://www.facebook.com/wearezigo" />
+  <meta name="description" content="We are ZIGO. We are a four-piece guitar band from Kent driven by groove, existenialist angst and razor-sharp wit.">
+  <meta name="og:description" content="We are ZIGO. We are a four-piece guitar band from Kent driven by groove, existenialist angst and razor-sharp wit.">
+	<link rel="shortcut icon" href="{% static '/images/favicon.ico' %}">
+	<link rel="stylesheet" href="{% static '/css/wearezigo1602.css' %}">
+  <!--[if lte IE 8]>
+    <link href='http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Junge' rel='stylesheet' type='text/css'>
+  <![endif]-->
+</head>
+<body class="loaded track-page {{ webTitle }} {{ bodyClass }}">
+<div class="bg"></div>
+<!--<div class="circle-wrap"><div class="circle"></div></div>-->
+<div class="bg-shade" id="player-bg"></div>
+<div class="big-wrap cf">
+  <div class="header header-closed" id="header">
+    <nav>
+      <ul class="mnav-ul">
+        <li class="mnav-li mnav-logo">
+          <ul class="snav-ul snav-album snav-mirror">
+            <li class="snav-li snav-logo"><a href="{% url '/' %}" class="mnav-a cf" title="HOME"><img src="{% static '/images/siteStyle/headlogo.png' %}" class="mnav-logo-img" alt="ZIGO" /></a></li>
+            <li class="snav-li"><a class="snav-a">Nature</a></li>
+            <li class="snav-li"><a class="snav-a">As A</a></li>
+            <li class="snav-li"><a class="snav-a">Mirror</a></li>
+          </ul></li>
+        <li class="mnav-li">
+          <ul class="snav-ul snav-album snav-{{ tags }}" data-album="{{ tags }}">
+            <li class="snav-li snav-head"><a class="snav-a">Album</a></li>
+            <li class="snav-li"><a class="snav-a foal-active the-foal">The Foal</a></li>
+            <li class="snav-li"><a class="snav-a fox-active the-fox">The Fox</a></li>
+          </ul>
+        </li>
+        <li class="mnav-li mnav-tracks">
+          <ul class="snav-ul snav-track snav-{{ webTitle }}" data-track="{{ webTitle }}">
+            <li class="snav-li snav-head"><a class="snav-a">Track</a></li>
+            {% for post in posts %}
+              {% if post.tags != "index" %}
+                <li class="snav-li">
+                  <a href="/music/{{ post.tags }}/{{ post.webTitle }}.html" class="snav-a {{ webTitle }}"><span class="snav-chapter">{{ post.chapter }}</span> {{ post.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        <li class="mnav-li mnav-share">
+          <a href="">&nbsp;</a>
+        </li>
+        <li class="mnav-li mnav-buy">
+          <div class="mnav-buy-wrap">
+            <a href="http://wearezigo.bandcamp.com/album/the-foal" target="_blank" class="mnav-buy-a">Download</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content cf">
+    <div class="wrap">
+      <div class="clear-col noPad" style="text-align: center;">
+        {% block body %}
+        {% endblock body %}
+      </div>
+      <div class="two-col">
+      </div>
+    </div>
+  </div>
+  <div class="footer player">
+  </div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function () {
+  	$('body').removeClass('loaded');
+	});
+
+  var cb = function() {
+	  var l = document.createElement('link'); l.rel = 'stylesheet';
+	  l.href = 'http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700|Junge';
+	  var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame || webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(cb);
+  else window.addEventListener('load', cb);
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-33044020-3', 'auto');
+  ga('send', 'pageview');
+</script>
+</body>
+</html>

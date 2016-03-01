@@ -1,0 +1,208 @@
+//.house-of-sin
+//  color: $w
+//
+//  .bg, .header-panam
+//    background-image: url('../images/tracks/the-fox/house-of-sin-bg.jpg')
+//
+//  .bg-shade
+//    background-image: url('../images/tracks/the-fox/house-of-sin-bg-shade.jpg')
+
+themeFoal($str)
+
+  .bg, .header-panam
+    background-image url(/static/images/tracks/the-foal/$str-bg.jpg)
+    background-position: center right
+    background-size: contain
+
+  .bg-shade
+    background-image: none
+
+themeFox($str)
+
+  .bg, .header-panam
+    background-image: url(/static/images/tracks/the-fox/$str-bg.jpg)
+
+  .bg-shade, .header-bg
+    background-image: url(/static/images/tracks/the-fox/$str-bg-shade.jpg)
+
+  .circle
+    background-image: url(/static/images/tracks/the-fox/$str-circle.jpg)
+
+themeDark()
+  color: $nw
+
+  .bg, .header-panam
+    background-color: #000
+
+themeLight()
+  .bg, .header-panam
+    background-color: $w
+
+  .mnav, .snav
+    &-a
+      color: $blk
+
+  .mnav
+    &-buy
+      &-a
+        background: rgba($w,.38)
+        text-shadow: 0 1px 13px rgba($bgry,1)
+
+        &:hover, &:focus
+          color: $blk
+  .snav
+    &-a
+      border-bottom-color: rgba($blk,.05)
+
+  .player
+    &-body
+      background: rgba($w,.21)
+
+    &-progress
+      background: rgba($blk,.8)
+
+    &-head
+      background: rgba($blk,.38)
+      border-color: rgba($blk,.8)
+
+      &:hover, &:focus
+        background: rgba($blk,.13)
+        border-color: rgba($blk,.9)
+
+  .play
+    background-image: url('../images/player/play-b.png')
+
+  .pause
+    background-image: url('../images/player/pause-b.png')
+
+  .prev
+    background-image: url('../images/player/prev-b.png')
+
+  .next
+    background-image: url('../images/player/next-b.png')
+
+  .mute
+    background-image: url('../images/player/mute-b.png')
+
+  .full
+    background-image: url('../images/player/full-b.png')
+
+  #volumecontrol
+    border-top-color: rgba($blk,.62)
+
+    &::-webkit-slider-thumb
+      background: rgba($blk,.38)
+      border-color: rgba($blk,.8)
+
+  .player-time
+    background-image: url('../images/player/time-b.png')
+
+.body
+  &-on-your-bones
+    themeFoal('on-your-bones')
+    themeLight()
+
+  &-war-horse
+    themeFoal('war-horse')
+    themeDark()
+
+  &-hunted
+    themeFoal('hunted')
+    themeDark()
+
+    .bg, .header-panam
+      background-size: cover
+
+  &-deliverance
+    themeFoal('deliverance')
+    themeLight()
+
+  &-seven
+    themeFoal('seven')
+    themeLight()
+
+    .bg, .header-panam
+      background-position: top center
+
+  &-interlude
+
+    .bg, .header-panam
+      background-image: url(/static/images/tracks/the-fox/interlude-bg.jpg)
+
+    .bg-shade, .header-bg
+      background-image: url(/static/images/tracks/the-fox/interlude-bg-shade.jpg)
+
+    .circle
+      background-image: url(/static/images/tracks/the-fox/interlude-circle.jpg)
+    themeDark()
+
+    color: $blk
+
+  &-house-of-sin
+
+    .bg, .header-panam
+      background-image: url(/static/images/tracks/the-fox/house-of-sin-bg.jpg)
+
+    .bg-shade, .header-bg
+      background-image: url(/static/images/tracks/the-fox/house-of-sin-bg-shade.jpg)
+
+    .circle
+      background-image: url(/static/images/tracks/the-fox/house-of-sin-circle.jpg)
+    themeDark()
+
+    .circle-wrap
+      z-index: 100
+
+  &-highly-strung
+
+    .bg, .header-panam
+      background-image: url(/static/images/tracks/the-fox/highly-strung-bg.jpg)
+
+    .bg-shade, .header-bg
+      background-image: url(/static/images/tracks/the-fox/highly-strung-bg-shade.jpg)
+
+    .circle
+      background-image: url(/static/images/tracks/the-fox/highly-strung-circle.jpg)
+    themeDark()
+
+  &-grace
+
+    .bg, .header-panam
+      background-image: url(/static/images/tracks/the-fox/grace-bg.jpg)
+
+    .bg-shade, .header-bg
+      background-image: url(/static/images/tracks/the-fox/grace-bg-shade.jpg)
+
+    .circle
+      background-image: url(/static/images/tracks/the-fox/grace-circle.jpg)
+    themeDark()
+
+  &-pact
+
+    .bg, .header-panam
+      background-image: url(/static/images/tracks/the-fox/pact-bg.jpg)
+
+    .bg-shade, .header-bg
+      background-image: url(/static/images/tracks/the-fox/pact-bg-shade.jpg)
+
+    .circle
+      background-image: url(/static/images/tracks/the-fox/pact-circle.jpg)
+    themeDark()
+
+    .circle-wrap
+      z-index: 100
+
+  &-getting-gone
+
+    .bg, .header-panam
+      background-image: url(/static/images/tracks/the-fox/getting-gone-bg.jpg)
+
+    .bg-shade, .header-bg
+      background-image: url(/static/images/tracks/the-fox/getting-gone-bg-shade.jpg)
+
+    .circle
+      background-image: url(/static/images/tracks/the-fox/getting-gone-circle.jpg)
+    themeLight()
+
+    .circle-wrap
+      box-shadow: 0 3px 10vh rgba($pink,.21)
