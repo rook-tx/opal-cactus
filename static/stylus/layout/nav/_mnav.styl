@@ -1,2 +1,77 @@
+// ----------
+// Core both
+// ----------
+
+.mnav, .snav
+  letter-spacing .05em
+  width 100%
+
+  &-ul
+    align-items flex-start
+    display flex
+    flex-direction row
+    margin 0 auto
+    max-width: (500vh/3)
+    text-align: center
+    word-spacing 0
+
+  &-li
+    display inline-block
+    height 10vh
+    vertical-align middle
+    word-spacing normal
+
+  &-a
+    display block
+    line-height 10vh
+
+// ----------
+// Core mnav
+// ----------
+
 .mnav
-  height 10vh
+  &-ul
+    max-height 10vh
+    overflow hidden
+    transition max-height .6s $ease
+
+    .snav-open &
+      max-height 0vh
+
+    .js-header:hover &
+      max-height 10vh
+      transition-delay 1s
+
+  &-li
+    width 20%
+
+  &-a
+    color $font
+    font-size ($nav/$p)*1em
+    font-weight $light
+    text-transform uppercase
+
+// ----------
+// Themes
+// ----------
+
+.mnav
+  &-logo
+    +bp('minTab')
+      order 3
+
+  &-music
+    +bp('minTab')
+      order 1
+
+  &-video
+    +bp('minTab')
+      order 2
+
+  &-about
+    +bp('minTab')
+      order 4
+
+  &-news
+    +bp('minTab')
+      order 5

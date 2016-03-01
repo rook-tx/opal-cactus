@@ -1,123 +1,47 @@
 .snav
-  border $let*1em solid $w
-  border-width 0 $let*1em
-  bottom 1px
-  left 0
-  position absolute
-  width 100%
-
-  &-ul
-    display flex
-    flex-direction row
-
-
   &-li
-    float left
+    padding 0 $gut*.5em
 
   &-next, &-prev
+    width 20%
     z-index 1
 
-  &-next
-    margin-left auto
-    order 3
-
-  &-prev
-    order 1
-
   &-current
-    order 2
-    padding 0 $let*.5em
+    width 60%
     z-index 0
 
   &-a
     display block
-    height $let*2em
-    width $let*2em
-    transition border-color .2s
-    white-space nowrap
-
-    &:hover
-
-      .snav-arrow
-        border-color $blk $hw $blk $blk
-        border-color $prpl $hw $prpl $prpl
-        color $blk
-
-        .snav-next &
-          border-color $blk $blk $blk $hw
-          border-color $blu $blu $blu $hw
-
-      .snav-details
-        border-color $blk $blk $blk $hw
-        border-color $prpl $prpl $prpl $hw
-        transform translate3d(100%,0,0)
-        padding $letc*.5em $letc*1em $letc*.5em $letc*.5em
-        padding $let*.5rem $let*1rem $let*.5rem $let*.5rem
-
-        .snav-next &
-          border-color $blk $hw $blk $blk
-          border-color $blu $hw $blu $blu
-          transform translate3d(-100%,0,0)
-          padding $letc*.5em $letc*.5em $letc*.5em $letc*1em
-          padding $let*.5rem $let*.5rem $let*.5rem $let*1rem
-
-  &-arrow, &-details
-    background $w
-    border 1px solid $gry
-
-  &-arrow
-    display block
-    color $mgry
-    font-size ($p/$pc)*1em
-    font-size 1rem
-    line-height $let*2
-    text-align center
-    width $let*2em
-    z-index 1
+    line-height 5vh
 
   &-details
-    color $prpl
-    font-size ($pc/$p)*1em
-    right 0
-    letter-spacing $ls
-    overflow hidden
-    padding $letc*.5em 0
-    padding $let*.5rem 0
-    position absolute
+    font-size (($pc/$mod)/$p)*1em
+    line-height 5vh
     text-transform uppercase
-    top 0
-    transform translate3d(0%,0,0)
-    transition border-color .2s, padding .2s $ease, transform .2s $ease
     z-index 0
 
-    strong
-      color $blk
+    span
+      display block
       font-size ($p/$pc)*1em
       font-size 1rem
-      letter-spacing $ls
+      line-height 5vh
 
-    .snav-next &
-      color $blu
-      right auto
-      left 0
+  &-arrow.snav-arrow
+    display inline
 
 .snav
   &-crumb
-    color $bgry
-    font-size ($pc/$p)*1em
-    letter-spacing $ls
-    line-height $letc*.5
-    line-height $let*.5rem
+    font-size (($pc/$mod)/$p)*1em
+    line-height 5vh
 
     &-a
-      color $mgry
       display inline-block
+      line-height 5vh
       text-transform uppercase
 
       &:hover, &:focus, &:active
-        color $prpl
+        color $pink
 
   &-title
     font-size ($h3/$p)*1em
-    color $nblk
-    line-height $let3*1.5
+    line-height 5vh

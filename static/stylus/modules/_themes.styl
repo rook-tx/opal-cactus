@@ -150,9 +150,6 @@ themeLight()
       background-image: url(/static/images/tracks/the-fox/house-of-sin-circle.jpg)
     themeDark()
 
-    .circle-wrap
-      z-index: 100
-
   &-highly-strung
 
     .bg, .header-panam
@@ -189,9 +186,6 @@ themeLight()
       background-image: url(/static/images/tracks/the-fox/pact-circle.jpg)
     themeDark()
 
-    .circle-wrap
-      z-index: 100
-
   &-getting-gone
 
     .bg, .header-panam
@@ -202,7 +196,13 @@ themeLight()
 
     .circle
       background-image: url(/static/images/tracks/the-fox/getting-gone-circle.jpg)
+
     themeLight()
+
+    p
+      background rgba(shade($pink,50%),.2)
+      text-shadow: 0 1px 4px $blk
+      color $w
 
     .circle-wrap
       box-shadow: 0 3px 10vh rgba($pink,.21)

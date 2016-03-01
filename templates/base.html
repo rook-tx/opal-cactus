@@ -21,24 +21,24 @@
   <div class="circle-wrap"><div class="circle"></div></div>
   <div class="bg-shade" id="player-bg"></div>
   <div class="big-wrap cf">
-  <header class="header cf">
+  <header class="header js-header cf">
     <div class="wrap">
       <nav class="mnav">
         <ul class="mnav-ul">
           <li class="mnav-li mnav-logo mnav-drop">
             <a class="mnav-a" href="{% url '/' %}" title="ZIGO">ZIGO</a>
           </li>
-          <li class="mnav-li">
-            <a class="mnav-a{% if pageClass == 'about' %} mnav-active{% endif %}" href="{% url '/music/' %}" title="Music">Music</a>
+          <li class="mnav-li mnav-music">
+            <a class="mnav-a mnav-music-a{% if pageClass == 'about' %} mnav-active{% endif %}" href="{% url '/music/' %}" title="Music">Music</a>
           </li>
-          <li class="mnav-li">
-            <a class="mnav-a{% if pageClass == 'about' %} mnav-active{% endif %}" href="{% url '/video/' %}" title="Video">Video</a>
+          <li class="mnav-li mnav-video">
+            <a class="mnav-a mnav-video-a{% if pageClass == 'about' %} mnav-active{% endif %}" href="{% url '/video/' %}" title="Video">Video</a>
           </li>
-          <li class="mnav-li">
-            <a class="mnav-a{% if pageClass == 'about' %} mnav-active{% endif %}" href="{% url '/about/' %}" title="About">About</a>
+          <li class="mnav-li mnav-about">
+            <a class="mnav-a mnav-about-a{% if pageClass == 'about' %} mnav-active{% endif %}" href="{% url '/about/' %}" title="About">About</a>
           </li>
-          <li class="mnav-li">
-            <a class="mnav-a{% if pageClass == 'blog' %} mnav-active{% endif %}" href="http://blog.collisionarystudios.com" title="Blog">News</a>
+          <li class="mnav-li mnav-news">
+            <a class="mnav-a mnav-news-a{% if pageClass == 'blog' %} mnav-active{% endif %}" href="http://blog.collisionarystudios.com" title="Blog">News</a>
           </li>
         </ul>
       </nav>
@@ -73,9 +73,22 @@
 				l = $('.js-hline'),
 				sp = $('.js-hlspan'),
 				hd = $('.js-header'),
-				sn = $('.snav').length;
+				sn = $('.snav').length,
+        pn = $('.player iframe'),
+        y = w/10,
+        $sc = 116;
+      if (y < $sc) {
+        y = $sc;
+      }
+      if (pn.length) {
+        pn.height(y)
+      }
 			$(window).resize( function() {
 		    w = $(window).outerHeight();
+        y = w/10;
+        if (y < $sc) {
+          y = $sc;
+        }
 			});
 		  $(window).scroll( function() {
     		b = $('body').outerHeight();
@@ -88,17 +101,17 @@
 				sp.text(Math.round(p));
 				l.attr('title', l.text());
 				if( sn > 0 ) {
-					if ( s > w ) {
+					if ( s > (w*2/3) ) {
 						if (! hd.hasClass('snav-open')) {
 							hd.addClass('snav-open');
 						}
 					}
-					if ( s < w ) {
+					if ( s < (w*2/3) ) {
 						if (hd.hasClass('snav-open')) {
 							hd.removeClass('snav-open');
 						}
 					}
-					if (p == 100) {
+					if (p == 0) {
 						if (hd.hasClass('snav-open')) {
 							hd.removeClass('snav-open');
 						}

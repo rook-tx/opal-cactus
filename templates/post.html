@@ -7,16 +7,14 @@
     <li class="snav-li snav-prev">
       {% if prevPost %}
         <a href="/{{ prevPost.path }}" class="snav-a" title="{{ prevPost.title }}">
-          <span class="snav-arrow">&lsaquo;</span>
           <div class="snav-details">
-            Previous <strong>{{ prevPost.title }}</strong>
+            <span class="snav-arrow">&lsaquo;</span> Previous <span>{{ prevPost.title }}</span>
           </div>
         </a>
       {% else %}
         <a href="/music/" class="snav-a snav-all" title="All projects">
-          <span class="snav-arrow">&lsaquo;</span>
           <div class="snav-details">
-            To <strong>All music</strong>
+            <span class="snav-arrow">&lsaquo;</span> To <span>All music</span>
           </div>
         </a>
       {% endif %}
@@ -35,16 +33,14 @@
     <li class="snav-li snav-next">
       {% if nextPost %}
         <a href="/{{ nextPost.path }}" class="snav-a" title="{{ nextPost.title }}">
-          <span class="snav-arrow">&rsaquo;</span>
           <div class="snav-details">
-            Next <strong>{{ nextPost.title }}</strong>
+            Next <span class="snav-arrow">&rsaquo;</span> <span>{{ nextPost.title }}</span>
           </div>
         </a>
       {% else %}
         <a href="/music/" class="snav-a snav-all" title="All projects">
-          <span class="snav-arrow">&lsaquo;</span>
           <div class="snav-details">
-            To <strong>All music</strong>
+            <span class="snav-arrow">&lsaquo;</span> To <span>All music</span>
           </div>
         </a>
       {% endif %}
@@ -72,55 +68,44 @@
 
 {% block scripts %}
 <script>
-  $(document).ready(function(){
+  $(document).ready(function () {
     var w = $(window).outerWidth(),
       h = $(window).outerHeight(),
       hw = w/2,
-      hh = h/2,
+      hh = h*2/3,
       r = 0,
       fr = 0,
       bg = $('.bg'),
       circle = $('.circle-wrap'),
-      bgs = $('.bg-shade');
+      bgs = $('.bg-shade'),
+      ex,
+      ey,
+      rx = (hw - ex)/w,
+      ry = (hh - ey)/h,
+      brx = rx*1,
+      bry = ry*1,
+      frx = rx*8,
+      fry = ry*5,
+      srx = (-(rx*0.5)),
+      sry = 0;
     $(window).on('mousemove', function (e) {
       ex = e.clientX;
       ey = e.clientY;
       rx = (hw - ex)/w;
       ry = (hh - ey)/h;
-      brx = rx*1;
-      bry = ry*1;
-      frx = rx*5;
-      fry = ry*3;
-      srx = (-(rx*0.5));
-      sry = 0;
-      bg.css('transform', 'translate3d(' + brx + '%,' + bry + '%,0)');
+      frx = rx*8;
+      fry = ry*5;
+      // bg.css('transform', 'translate3d(' + brx + '%,' + bry + '%,0)');
       circle.css('transform', 'translate3d(' + frx + '%,' + fry + '%,0)');
-      bgs.css('transform', 'translate3d(' + srx + '%,' + sry + '%,0)');
-      console.log(ey);
-    });
-    $(window).on('devicemotion', function (e) {
-      ex = e.accelerationIncludingGravity.x;
-      ey = e.accelerationIncludingGravity.y;
-      rx = (hw - ex)/w;
-      ry = (hh - ey)/h;
-      brx = rx*1;
-      bry = ry*1;
-      frx = rx*5;
-      fry = ry*3;
-      srx = (-(rx*0.5));
-      sry = 0;
-      bg.css('transform', 'translate3d(' + brx + '%,' + bry + '%,0)');
-      circle.css('transform', 'translate3d(' + frx + '%,' + fry + '%,0)');
-      bgs.css('transform', 'translate3d(' + srx + '%,' + sry + '%,0)');
-      console.log(ey);
+      // bgs.css('transform', 'translate3d(' + srx + '%,' + sry + '%,0)');
     });
     $(window).on('resize', function () {
       w = $(window).outerWidth();
       h = $(window).outerHeight();
       hw = w/2;
-      hh = h/2;
+      hh = h*2/3;
     });
-  })
+  });
 </script>
 
 {% endblock scripts %}
