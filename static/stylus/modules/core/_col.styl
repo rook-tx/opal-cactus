@@ -7,129 +7,111 @@
   width 100%
 
 .wrap
+  @extend .cf
   margin 0 auto
   max-width $width*1em
-  padding $let*2em $let*.5em
+  pad(2,.5)
   width 100%
+
 
 // ----------
 // .x-n-col
 // ----------
 
-[class*=\"-col\"]
+.one-col
   float left
-  padding-left $let*.5em
-  padding-right $let*.5em
+  padding-left $gut*.5em
+  padding-right $gut*.5em
   width 100%
 
-  > img
-    max-width $pwidth*1.618em
-    width 100%
+col(x,n)
+  @extend .one-col
 
-.clear-col
-  >
-    img, p
-      margin 0 auto $let*2em
+  +bp('mM')
+    if x == 1
+      if even(n)
+        width ((x*100%)/(n/2))
 
-.one-col
-  float none
-  padding-left $let*1em
-  padding-right $let*1em
+      if odd(n)
+        width ((x*100%)/((n + 1)/2))
+
+    if x > 1
+      if x == (n - 1)
+        width 100%
+
+      else
+        if even(x)
+          if even(n)
+            width (((x/2)*100%)/(n/2))
+
+          if odd(n)
+            width (((x/2)*100%)/((n + 1)/2))
+
+        if odd(x)
+          if even(n)
+            width ((((x + 1)/2)*100%)/(n/2))
+
+          if odd(n)
+            width ((((x + 1)/2)*100%)/((n + 1)/2))
+
+  +bp('mT')
+    width ((x*100%)/n)
+
+  +bp('p')
+    width ((x*100%)/n)
 
 .two-col
-  +bp('minMob')
-    width 50%
-
-  +bp('print')
-    width 50%
+  col(1,2)
 
 .three-col
-  +bp('minTab')
-    width (100%/3)
-
-  +bp('print')
-    width 50%
+  col(1,3)
 
 .two-three-col
-  +bp('minTab')
-    width (200%/3)
-
-  +bp('print')
-    width (200%/3)
+  col(2,3)
 
 .four-col
-  +bp('minMob')
-    width 50%
-
-  +bp('minTab')
-    width 25%
-
-  +bp('print')
-    width 25%
-
-  .wrap &
-    &:nth-child(4n+1)
-      clear left
+  col(1,4)
 
 .three-four-col
-  +bp('minTab')
-    width 75%
-
-  +bp('print')
-    width 75%
+  col(3,4)
 
 .six-col
-  +bp('minMob')
-    width (100%/3)
-
-  +bp('minTab')
-    width (100%/6)
-
-  +bp('print')
-    width (100%/6)
+  col(1,6)
 
 .five-six-col
-  +bp('minMob')
-    width (100%/3)
+  col(5,6)
 
-  +bp('minTab')
-    width (500%/6)
-
-  +bp('print')
-    width (100%/6)
-
-.twelve-col
-  +bp('minMob')
-    width (100%/6)
-
-  +bp('minTab')
-    width (100%/12)
-
-  +bp('print')
-    width (100%/12)
-
-.seven-twelve-col
-  +bp('minTab')
-    width (700%/12)
-
-  +bp('print')
-    width (700%/12)
 
 // ----------
 // Modifers
 // ----------
 
-.col-c
+.clear-col.clear-col
+  float none
+  padding-left $gut*1em
+  padding-right $gut*1em
+
+.noPad.noPad
+  padding-left 0
+  padding-right 0
+
+.col-cl.col-cl
+  clear left
+
+.col-cr.col-cr
+  clear right
+
+.col-c.col-c
   clear both
   float none
   margin-left auto
   margin-right auto
 
-.col-r
+.col-r.col-r
   float right
 
-.align-c
+.align-c.align-c
   text-align center
 
-.align-r
+.align-r.align-r
   text-align right

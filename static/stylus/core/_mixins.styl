@@ -1,5 +1,97 @@
 // ----------
-// Colour
+// Padding & Margin
+// ----------
+
+pad(pt,pr,pb = pt,pl = pr,lh = $let,gt = $gut)
+  if lh == h1
+    lh = $let1
+    gt = $gut1
+  else if lh == h2
+    lh = $let2
+    gt = $gut2
+  else if lh == h3
+    lh = $let3
+    gt = $gut3
+  else if lh == h4
+    lh = $let4
+    gt = $gut4
+  else if lh == h5
+    lh = $let5
+    gt = $gut5
+  else if lh == c
+    lh = $letc
+    gt = $gutc
+  else if lh == n
+    lh = $letn
+    gt = $gutn
+  else
+    lh = $let
+    gt = $gut
+
+  if pb == pt and pr == pl
+    padding lh*pt*1em gt*pr*1em
+    padding $let*pt*1rem $gut*pr*1rem
+
+  else if pb != pt and pr == pl
+    padding lh*pt*1em gt*pr*1em lh*pb*1em
+    padding $let*pt*1rem $gut*pr*1rem $let*pb*1rem
+
+  else
+    padding lh*pt*1em gt*pr*1em lh*pb*1em gt*pl*1em
+    padding $let*pt*1rem $gut*pr*1rem $let*pb*1rem $gut*pl*1rem
+
+
+mgn(mt,mr,mb = mt,ml = mr,lh = $let,gt = $gut)
+  if lh == h1
+    lh = $let1
+    gt = $gut1
+  else if lh == h2
+    lh = $let2
+    gt = $gut2
+  else if lh == h3
+    lh = $let3
+    gt = $gut3
+  else if lh == h4
+    lh = $let4
+    gt = $gut4
+  else if lh == h5
+    lh = $let5
+    gt = $gut5
+  else if lh == c
+    lh = $letc
+    gt = $gutc
+  else if lh == n
+    lh = $letn
+    gt = $gutn
+  else
+    lh = $let
+    gt = $gut
+
+  if mt == mb and mr == ml
+    if mr == auto
+      margin lh*mt*1em auto
+      margin $let*mt*1rem auto
+
+    else
+      margin lh*mt*1em gt*mr*1em
+      margin $let*mt*1rem $gut*mr*1rem
+
+  else if mt != mb and mr == ml
+    if mr == auto
+      margin lh*mt*1em auto lh*mb*1em
+      margin $let*mt*1rem auto $let*mb*1em
+
+    else
+      margin lh*mt*1em gt*mr*1em lh*mb*1em
+      margin $let*mt*1rem $gut*mr*1rem $let*mb*1rem
+
+  else
+    margin lh*mt*1em gt*mr*1em lh*mb*1em gt*ml*1em
+    margin $let*mt*1rem $gut*mr*1rem $let*mb*1rem $gut*ml*1rem
+
+
+// ----------
+// Media queries
 // ----------
 
 bp($condition)
@@ -14,20 +106,21 @@ bp($condition)
 
 $media_cache = {}
 $media_aliases = {
-  // minMob: $mobileArg
-  minMob: '(min-width : 640px)'
-  mobile: '(max-width : 640px)'
-  minTab: '(min-width : 864px)'
-  tablet: '(max-width : 864px)'
-  // minFull: '(min-width : ' + $width + ')'
-  // fullWidth: '(min-width : ' + $width + ')'
+  mN: 'only screen and (min-width : 449px)'
+  mM: 'only screen and (min-width : 639px)'
+  mT: 'only screen and (min-width : 863px)'
+  mD: 'only screen and (min-width : 1199px)'
+  D: 'only screen and (max-width : 1200px)'
+  T: 'only screen and (max-width : 864px)'
+  M: 'only screen and (max-width : 640px)'
+  N: 'only screen and (max-width : 450px)'
+  r: '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'
+  p: 'only print'
 }
 
 dump_media_cache()
   for $media, $blocks in $media_cache
     $media = unquote($media_aliases[$media] || $media)
-    $media = '(%s)' % $media unless match('\(', $media)
-    $media = 'only screen and %s' % $media
     @media $media
       for $block in $blocks
         {$block}

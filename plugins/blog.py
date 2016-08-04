@@ -3,7 +3,7 @@ import datetime
 import logging
 
 ORDER = 999
-POSTS_PATH = 'posts/'
+POSTS_PATH = 'projects/'
 POSTS = []
 
 from django.template import Context
@@ -48,8 +48,11 @@ def preBuild(site):
 			# Build a context for each post
 			postContext = {}
 			postContext['title'] = find('title')
-			postContext['author'] = find('author')
+			postContext['cat'] = find('cat')
+			postContext['src'] = find('src')
+			postContext['type'] = find('type')
 			postContext['date'] = find('date')
+
 			postContext['path'] = page.path
 			postContext['body'] = getNode(get_template(page.path), name="body")
 

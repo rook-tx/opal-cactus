@@ -2,48 +2,67 @@
 // Font
 // ----------
 
-$font     = 'Lato', serif
+$font     = 'Lato', sans-serif
 $hfont    = 'Merriweather', serif
+
 
 // ----------
 // Weight
 // ----------
 
-$slight   = 100
-$light    = 300
-$weight   = 400
-$sbold    = 600
-$bold     = 700
+$thin       = 100
+$light      = 300
+$weight     = 400
+$sbold      = 600
+$bold       = 700
+
 
 // ----------
-// Type
+// Modular type
 // ----------
 
-$p        = 16
-$lh       = 26
+$p          = 16
+$lh         = $p*1.5
+$gt         = $lh
 
-$h1       = 138
-$h2       = 38
-$h3       = 72
-$h4       = 44
-$h5       = 24
-$h6       = 18
-$pc       = 14
+$pwidth     = 37
 
-$nav      = 14
+@import '_mod.styl'
+
+$mod        = $major-second
+
+$h0         = $p*$mod*$mod*$mod*$mod*$mod*$mod*$mod
+$h1         = $p*$mod*$mod*$mod*$mod*$mod
+$h2         = $p*$mod*$mod*$mod*$mod
+$h3         = $p*$mod*$mod*$mod
+$h4         = $p*$mod*$mod
+$h5         = $p*$mod
+
+$pc         = $p/$mod
+
+$nav        = $pc
+
 
 // ----------
 // Grid
 // ----------
 
-$let      = $lh/$p
-$let1     = $lh/$h1
-$let2     = $lh/$h2
-$let3     = $lh/$h3
-$let4     = $lh/$h4
-$let5     = $lh/$h5
-$let6     = $lh/$h6
-$letc     = $lh/$pc
-$letn     = $lh/$nav
+$let        = $lh/$p
+$let0       = $lh/$h0
+$let1       = $lh/$h1
+$let2       = $lh/$h2
+$let3       = $lh/$h3
+$let4       = $lh/$h4
+$let5       = $lh/$h5
+$letc       = $lh/$pc
+$letn       = $lh/$nav
 
-$pwidth   = 36
+$gut        = $gt/$p
+$gut0       = $gt/$h0
+$gut1       = $gt/$h1
+$gut2       = $gt/$h2
+$gut3       = $gt/$h3
+$gut4       = $gt/$h4
+$gut5       = $gt/$h5
+$gutc       = $gt/$pc
+$gutn       = $gt/$nav

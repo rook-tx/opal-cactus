@@ -1,3 +1,7 @@
+// ----------
+// Core type
+// ----------
+
 h1, h2
   font-family $hfont
   font-weight $bold
@@ -5,35 +9,42 @@ h1, h2
 h1
   font-size ($h1/$p)*1em
   line-height $let1
-  margin-bottom $let1*1em
+  mgn(1,0,lh:h1)
 
 h2
   font-size ($h2/$p)*1em
   line-height $let2
-  margin-bottom $let2*1em
+  mgn(1,0,lh:h2)
 
 h3
   font-size ($h3/$p)*1em
   line-height $let3
-  margin-bottom $let3*1em
+  mgn(1,0,lh:h3)
 
 h4
   font-size ($h4/$p)*1em
   line-height $let4
-  margin-bottom $let4*1em
+  mgn(1,0,lh:h4)
 
 h5
   font-size ($h5/$p)*1em
   line-height $let5
-  margin-bottom $let5*1em
+  mgn(1,0,lh:h5)
 
 p
-  margin-bottom $let*1em
+  mgn(1,0)
+
+h1, h2, h3, h4, h5, p
   max-width $pwidth*1em
+
+
+// ----------
+// Modifers
+// ----------
 
 strong, b
   font-weight $bold
-  letter-spacing 0
+  letter-spacing normal
 
 em, i
   font-style italic

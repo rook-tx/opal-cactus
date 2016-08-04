@@ -1,0 +1,32 @@
+{
+  "name": "opal-cactus",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "",
+  "author": "[tom]",
+  "main": "",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "*",
+    "gulp": "*",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-coffee": "*",
+    "gulp-concat": "*",
+    "gulp-copy": "0.0.2",
+    "gulp-data": "^1.2.1",
+    "gulp-load-plugins": "*",
+    "gulp-clean-css": "*",
+    "gulp-rename": "^1.2.2",
+    "gulp-stylus": "*",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "*",
+    "http-rewrite-middleware": "^0.1.6"
+  },
+  "keywords": [],
+  "readmeFilename": "README.md",
+  "license": "BSD"
+}
