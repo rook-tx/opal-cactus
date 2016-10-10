@@ -138,8 +138,8 @@ gulp.task 'scriptLibs', () ->
 
 gulp.task 'watch', () ->
 
-  gulp.watch('./static/**/*.{css,styl}', ['styles'])
+  gulp.watch('./static/**/*.styl', ['styles'])
     .on 'error', plugins.util.log
 
-  gulp.watch('./static/**/*.{js,coffee}', ['scripts'])
+  gulp.watch('./static/**/*.coffee', ['scripts'])
     .on 'error', plugins.util.log
