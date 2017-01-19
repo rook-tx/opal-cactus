@@ -1,2 +1,4 @@
 .build/*
-static/node_modules/*
+node_modules/*
+static/css/*
+static/js/*

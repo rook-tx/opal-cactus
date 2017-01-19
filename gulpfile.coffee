@@ -27,7 +27,7 @@ paths           =
       './static/css/*.css'
     ]
     scriptLibs    : [
-      './static/scripts/vendors/jquery-1.11.3.min.js'
+      './static/scripts/vendors/jquery-2.1.1.min.js'
     ]
 
 runShellCommand = (command, options, cb)->
@@ -61,7 +61,7 @@ gulp.task('default', ['scripts', 'styles', 'scriptLibs'])
 gulp.task 'styles', () ->
 
   sources = [
-    { src: './static/stylus/' + paths.proj + '.styl', file: paths.proj + '.css' }
+    { src: './static/stylus/styles.styl', file: paths.proj + '.css' }
   ]
   destination = './static/css/'
 
@@ -73,23 +73,6 @@ gulp.task 'styles', () ->
       .pipe(plugins.rename(css.file))
       .on('error', plugins.util.log)
       .pipe(gulp.dest(destination))
-
-
-# ----------
-# Style Libraries
-# ----------
-
-gulp.task 'styleLibs', () ->
-
-  source = paths.src.styleLibs.concat([])
-
-  destination = './static/css/'
-
-  gulp.src(source)
-    .pipe(plugins.concat('libs.min.css'))
-    .pipe(plugins.cleanCss({keepBreaks:false}))
-    .on('error', plugins.util.log)
-    .pipe(gulp.dest(destination))
 
 
 # ----------
