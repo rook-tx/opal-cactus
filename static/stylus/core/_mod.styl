@@ -19,3 +19,91 @@ $major-third        = (5/4)             /* 1.25         */
 $minor-third        = (6/5)             /* 1.2          */
 $major-second       = (9/8)             /* 1.125        */
 $minor-second       = (16/15)           /* 1.066666667  */
+
+
+// ----------
+// $mod
+// ----------
+
+$mod        = $major-second
+
+
+// ----------
+// Modular scale: relative
+// ----------
+
+ms(step, scale = $mod)
+  result = scale
+
+  if step > 1
+    step = step - 1
+
+    for i in (1..step)
+      result = result * scale
+
+  else if step < 0
+    step = step + 1
+
+    for i in (1..step)
+      result = result / scale
+
+  else if step == 0
+    result = 1
+
+  return result
+
+
+// ----------
+// Modular scale: Pixel value
+// ----------
+
+mp(step, scale = $mod)
+  result = scale
+
+  if step > 1
+    step = step - 1
+
+    for i in (1..step)
+      result = result * scale
+
+  else if step < 0
+    step = step + 1
+
+    for i in (1..step)
+      result = result / scale
+
+  else if step == 0
+    result = 1
+
+  return result * $p
+
+
+// ----------
+// Font-size & line-height (req. px)
+// ----------
+
+fs(px)
+  font-size (px/$p)*1em
+  font-size (px/$p)*1rem
+
+  lh = $lh
+
+  if lh/px < 1
+    lh = $lh*1.5
+
+  if lh/px < 1
+    lh = $lh*2
+
+  if lh/px < 1
+    lh = $lh*2.5
+
+  if lh/px < 1
+    lh = $lh*3
+
+  if lh/px < 1
+    lh = $lh*3.5
+
+  if lh/px < 1
+    lh = $lh*4
+
+  line-height (lh/px)

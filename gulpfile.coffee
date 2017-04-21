@@ -68,7 +68,7 @@ gulp.task 'styles', () ->
   for css in sources
     gulp.src(css.src)
       .pipe(plugins.stylus())
-      .pipe(plugins.cleanCss())
+      .pipe(plugins.cleanCss({level:{1:{roundingPrecision:3}}}))
       .pipe(autoprefixer('last 3 version'))
       .pipe(plugins.rename(css.file))
       .on('error', plugins.util.log)
