@@ -23,9 +23,6 @@ paths           =
 
   proj : 'opal-cactus'
   src :
-    styleLibs     : [
-      './static/css/*.css'
-    ]
     scriptLibs    : [
       './static/scripts/vendors/jquery-2.1.1.min.js'
     ]
